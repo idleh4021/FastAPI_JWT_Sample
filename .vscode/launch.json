@@ -1,0 +1,9 @@
+{
+    "name": "Python: FastAPI",
+    "type": "python",
+    "request": "launch",
+    "program": "${workspaceFolder}/app/main.py",
+    "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+    }
+}
