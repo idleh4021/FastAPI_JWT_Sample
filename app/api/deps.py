@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from utils import jwt_handler as jwt
 from db.models import User
 from db.database import SessionLocal
+from jose import ExpiredSignatureError
 
 #oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 api_key_scheme = APIKeyHeader(name="Authorization", auto_error=False)
@@ -20,7 +21,16 @@ def get_current_user(token: str = Depends(api_key_scheme), db: Session = Depends
     if token is None:
         raise HTTPException(status_code=401, detail="Invalid token")
     #print(f'token is str : {type(token)}')
-    payload = jwt.decode_token(str(token))
+    try:
+        payload = jwt.decode_token(str(token))
+    except ExpiredSignatureError:
+        raise HTTPException(
+            status_code=401,
+            detail="Token has expired.",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+        
+    
     if payload is None:
         raise HTTPException(status_code=401, detail="Invalid token")
 

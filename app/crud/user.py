@@ -15,5 +15,10 @@ def get_user(db: Session, user_email: str):
 def get_all_user(db:Session):
     return db.query(models.User).all()
 
+def delete_user(id:int,db:Session):
+    cnt = db.query(models.User).filter(models.User.id ==id).delete()
+    db.commit()
+    return cnt
+
 #def email_exists(db:Session, email : str):
 #    return db.query(models.User).filter(models.User.email == email).first() 

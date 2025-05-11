@@ -24,3 +24,8 @@ def store_refresh_token(db: Session, user_id: int,device_id:str, refresh_token_i
         db.commit()
         db.refresh(token_entry)
     return token_entry
+
+def get_refresh_token(id :str,device_id:str,db:Session):
+    user_token = db.query(user_token_model).filter(user_token_model.user_id == id,user_token_model.device_id ==device_id).first()
+    return user_token
+        

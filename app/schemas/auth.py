@@ -6,3 +6,4 @@ class refresh_token_info(BaseModel):
     #id:int
     refresh_token : str
     expired_at : datetime
+    
