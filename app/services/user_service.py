@@ -68,4 +68,18 @@ def refresh(refresh_token:str,db:Session):
             raise HTTPException(status_code=400,detail="invalid token")
         else :
             return {"access_token": jwt.create_access_token(data={"sub" : str(id)})}
-            
+
+def user_update(user:user_schema.UserUpdate,id:str,db:Session):
+    get_user = user_crud.get_user_by_id(db,id)
+    if get_user is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Couldn't find your Account"
+            )
+    else :
+        if bc.verify_password(user.old_password,get_user.password):
+            user.new_password = bc.hash_password(user.new_password)
+            user_crud.user_update(user,get_user,db)
+            return {"message":"User information has been successfully updated"}
+        else:
+            raise HTTPException(status_code=400,detail="Invalid credentials")
