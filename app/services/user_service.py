@@ -27,8 +27,8 @@ def login(db:Session,user:user_schema.Login):
             detail="Couldn't find your Account"
         )
     if(bc.verify_password(user.password,account.password)):
-        access_token = jwt.create_access_token(data={"sub" : account.id})
-        refresh_token_dict = jwt.create_refresh_token(data={"sub" : account.id})
+        access_token = jwt.create_access_token(data={"sub" : str(account.id)})
+        refresh_token_dict = jwt.create_refresh_token(data={"sub" : str(account.id)})
         refresh_token_info= au.refresh_token_info(**refresh_token_dict)                                            
         auth_crud.store_refresh_token(db,account.id,user.device_id,refresh_token_info)
         return {"access_token" : access_token , "refresh_token" : refresh_token_info.refresh_token , "token_type":"bearer"}

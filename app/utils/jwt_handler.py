@@ -24,5 +24,8 @@ def create_refresh_token(data: dict, expires_delta: timedelta | None = None) -> 
 
 # 토큰 디코딩
 def decode_token(token: str) -> dict:
+    # 'bearer ' 문자열 제거 (대소문자 구분 없음)
+    if token.lower().startswith("bearer "):
+        token = token[7:]
     return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
 

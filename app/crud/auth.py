@@ -5,13 +5,13 @@ from schemas import auth as auth_schema
 
 
 def store_refresh_token(db: Session, user_id: int,device_id:str, refresh_token_info:auth_schema.refresh_token_info):
-    token_entry = user_token_model(id =user_id,
+    token_entry = user_token_model(user_id =user_id,
                                     refresh_token=refresh_token_info.refresh_token,
                                     device_id=device_id,
                                     expired_at=refresh_token_info.expired_at)
     exists = (
         db.query(user_token_model)
-        .filter(user_token_model.id == token_entry.id,user_token_model.device_id == token_entry.device_id)
+        .filter(user_token_model.user_id == token_entry.user_id,user_token_model.device_id == token_entry.device_id)
         .first()
     )
     if exists:
