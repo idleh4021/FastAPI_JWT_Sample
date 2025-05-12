@@ -334,16 +334,16 @@
           <mxGeometry x="727" y="240" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-16" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-34" y="277" width="880" height="10" as="geometry" />
+          <mxGeometry x="-58" y="277" width="926" height="10" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-17" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" vertex="1" parent="1">
-          <mxGeometry x="40" y="283" width="10" height="437" as="geometry" />
+          <mxGeometry x="40" y="283" width="10" height="757" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-20" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" vertex="1" parent="1">
-          <mxGeometry x="401" y="283" width="10" height="437" as="geometry" />
+          <mxGeometry x="401" y="283" width="10" height="757" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-21" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" vertex="1" parent="1">
-          <mxGeometry x="762" y="283" width="10" height="437" as="geometry" />
+          <mxGeometry x="762" y="283" width="10" height="757" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-22" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;JWT 토큰 발급 및 검증 다이어그램&lt;/h1&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-34" y="79" width="414" height="40" as="geometry" />
@@ -387,6 +387,83 @@
             <mxPoint x="412" y="501" as="sourcePoint" />
             <mxPoint x="762" y="501" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-34" value="API 요청(유효한 access token)" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="560" as="sourcePoint" />
+            <mxPoint x="400" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-35" value="토큰 검증(Success)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="412" y="560" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="442" y="560" />
+              <mxPoint x="442" y="590" />
+            </Array>
+            <mxPoint x="412" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-36" value="서버 내부 작업" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="620" as="sourcePoint" />
+            <mxPoint x="761" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-38" value="API 응답(200)" style="endArrow=none;html=1;rounded=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;startFill=0;startArrow=classic;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="658" as="sourcePoint" />
+            <mxPoint x="401" y="658" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-39" value="API 요청(&lt;span style=&quot;color: rgb(255, 51, 51);&quot;&gt;만료된&lt;/span&gt; &lt;span style=&quot;color: rgb(255, 51, 51);&quot;&gt;access token&lt;/span&gt;)" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="730" as="sourcePoint" />
+            <mxPoint x="400" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-40" value="토큰 검증(Failed)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="411" y="730" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="441" y="730" />
+              <mxPoint x="441" y="760" />
+            </Array>
+            <mxPoint x="411" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-41" value="API 검증 실패 응답(401)" style="endArrow=none;html=1;rounded=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;startFill=0;startArrow=classic;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="760" as="sourcePoint" />
+            <mxPoint x="401" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-42" value="API 요청(유효한 refresh token)" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="800" as="sourcePoint" />
+            <mxPoint x="400" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-43" value="refresh token 정보 요청" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="837" as="sourcePoint" />
+            <mxPoint x="761" y="837" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-44" value="Login" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-58" y="283" width="64" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-45" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-58" y="530" width="926" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-46" value="&lt;div&gt;Api Request&lt;/div&gt;&lt;div&gt;(Suceess)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-58" y="530" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-47" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-58" y="696" width="926" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-48" value="&lt;div&gt;Api Request&lt;/div&gt;&lt;div&gt;(Failed &amp;amp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;refresh)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-58" y="696" width="100" height="64" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
