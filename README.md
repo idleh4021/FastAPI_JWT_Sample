@@ -41,6 +41,7 @@ uvicorn app.main:app --reload
 정상적으로 구동이 된다면 [표기된 링크](http://127.0.0.1:8000)로 정상 접속을 확인합니다.
 
 <img src="/public/paste-image/README/2025-05-13-01-33-21.png" width="75%" />
+<img src="/paste-image/README/2025-05-13-01-37-02.png" width="75%" />
 
 # API 명세정보
 
@@ -50,4 +51,4 @@ uvicorn app.main:app --reload
 
 [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-![alt text](image-2.png)
+<img src="/paste-image/README/![alt%20text](image-2.png).png" width="75%" />
