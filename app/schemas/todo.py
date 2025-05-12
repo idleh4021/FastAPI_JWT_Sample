@@ -16,7 +16,7 @@ class TodoUpdate(BaseModel):
 class TodoResponse(BaseModel):
     id: int
     user_id: int
-    title: str
+    title: Optional[str]
     description: Optional[str]
     todo_date: Optional[datetime]
     complete: int

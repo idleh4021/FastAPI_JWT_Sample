@@ -1,7 +1,7 @@
 # FastAPI_JWT_Sample/init_db.py
 
-from db.database import engine, Base
-from db import models
+from app.db.database import engine, Base
+from app.db import models
 
 def init_db():
     print('Creating tables...')

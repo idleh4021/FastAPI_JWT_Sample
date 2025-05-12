@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends,Form
+from fastapi import APIRouter, Depends,Form,Query
 from sqlalchemy.orm import Session
 from app.schemas import todo as td_scheme
 from app.crud import user as user_crud
@@ -7,6 +7,8 @@ from app.services import todo_service
 from fastapi.security import OAuth2PasswordBearer
 from app.api import deps
 from fastapi import HTTPException
+from typing import Optional
+from datetime import datetime
 
 router = APIRouter()
 
@@ -42,7 +44,7 @@ def delete_todo(id: int, db: Session = Depends(deps.get_db),  current_user = Dep
         raise HTTPException(status_code=404, detail="Todo not found or unauthorized")
     return {"detail": "Todo deleted"}
 
-@router.get("/search", response_model=List[td_scheme.TodoResponse],summary='일정 정보 검색')
-def search_todos(keyword: str, db: Session = Depends(deps.get_db),  current_user = Depends(deps.get_current_user)):
+@router.get("/search/", response_model=List[td_scheme.TodoResponse],summary='일정 정보 검색')
+def search_todos(title: Optional[str]=Query(None,description='타이틀'),date: Optional[datetime]=Query(None,description='날짜'), db: Session = Depends(deps.get_db),  current_user = Depends(deps.get_current_user)):
     user_id = current_user.id
-    return todo_service.search_todos(db, user_id, keyword)
+    return todo_service.search_todos(db, user_id, title,date)

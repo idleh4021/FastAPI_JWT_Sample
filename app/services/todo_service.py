@@ -4,6 +4,7 @@ from app.schemas import todo as td_scheme
 from typing import List, Optional
 from datetime import datetime
 from app.crud import todo as td_crud
+from sqlalchemy import func
 
 def create_todo(db: Session, user_id: int, todo_data: td_scheme.TodoCreate):
     return td_crud.create_todo(db,user_id,todo_data)
@@ -26,8 +27,11 @@ def delete_todo(db: Session, todo_id: int, user_id: int):
     db.commit()
     return True
 
-def search_todos(db: Session, user_id: int, keyword: str):
-    return db.query(Todo).filter(
-        Todo.user_id == user_id,
-        Todo.title.ilike(f'%{keyword}%')
-    ).all()
+def search_todos(db: Session, user_id: int, title: Optional[str],date:Optional[datetime]):
+    query =db.query(Todo).filter(Todo.user_id == user_id)
+    if title and title.strip() != '':
+        query = query.filter(Todo.title.ilike(f'%{title}%'))
+    if date :
+        query = query.filter( func.Date(Todo.todo_date)==date.date())
+    return query.all()
+        
