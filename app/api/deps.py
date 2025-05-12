@@ -23,9 +23,9 @@ def get_current_user(token: str = Depends(api_key_scheme), db: Session = Depends
         raise HTTPException(status_code=401, detail="Invalid token")
     #print(f'token is str : {type(token)}')
     try:
-        print(token)
+        print('wrong')
         payload = jwt.decode_token(str(token))
-    except ExpiredSignatureError:
+    except :
         raise HTTPException(
             status_code=401,
             detail="Token has expired.",

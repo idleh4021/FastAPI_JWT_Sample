@@ -29,3 +29,6 @@ class Login(BaseModel):
     email:str= Field(...,description="이메일 계정")
     password:str= Field(...,description="암호")
     device_id:str= Field(...,description="디바이스정보")
+    
+class UserDelete(BaseModel):
+    password:str

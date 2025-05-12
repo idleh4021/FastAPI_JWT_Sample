@@ -19,3 +19,6 @@ class response_login(BaseModel):
     access_token : str
     refresh_token : str
     token_type : str
+    
+class refresh(BaseModel):
+    refresh_token:str

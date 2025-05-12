@@ -12,6 +12,7 @@ from fastapi import HTTPException
 from app.schemas import enum as valid
 
 router = APIRouter()
+
 @router.post('/signup', response_model=user_schema.UserRead, summary='회원가입')
 def create_user(user: user_schema.UserCreate, db: Session = Depends(deps.get_db)):
     if user_service.get_user(db, user.email):
@@ -48,8 +49,8 @@ def login(
 
 
 @router.post('/refresh', response_model=auth_schema.response_refresh, summary='access_token 갱신', description='refresh_token으로 access_token을 갱신 발급합니다.')
-def refresh(refresh_token: str, db: Session = Depends(deps.get_db)):
-    result, user_id, device_id = user_service.validate_refresh_token(refresh_token, db)
+def refresh(refresh: auth_schema.refresh, db: Session = Depends(deps.get_db)):
+    result, user_id, device_id = user_service.validate_refresh_token(refresh.refresh_token, db)
 
     if result == valid.RefreshValidationResult.NOT_FOUND:
         raise HTTPException(status_code=404, detail="Refresh token not found.")
@@ -62,8 +63,8 @@ def refresh(refresh_token: str, db: Session = Depends(deps.get_db)):
 
 
 @router.delete('/me', response_model=response.CudResponseModel, summary="사용자정보 삭제")
-def delete_user(password: str = Form(...), current_user=Depends(deps.get_current_user), db: Session = Depends(deps.get_db)):
-    login_model = user_schema.Login(email=current_user.email, password=password, device_id=current_user.device_id)
+def delete_user(user: user_schema.UserDelete , current_user=Depends(deps.get_current_user), db: Session = Depends(deps.get_db)):
+    login_model = user_schema.Login(email=current_user.email, password=user.password, device_id=current_user.device_id)
     validation_result, account = user_service.validate_login_and_get_user(db, login_model)
 
     if validation_result == valid.LoginValidationResult.USER_NOT_FOUND:
@@ -71,7 +72,7 @@ def delete_user(password: str = Form(...), current_user=Depends(deps.get_current
     elif validation_result == valid.LoginValidationResult.INVALID_PASSWORD:
         raise HTTPException(status_code=400, detail="Incorrect password.")
 
-    result = user_service.delete_user(current_user.id, current_user.email, password, db)
+    result = user_service.delete_user(current_user.id, current_user.email, user.password, db)
     return result
 
 
