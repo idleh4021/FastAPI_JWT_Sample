@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from db import models
-from schemas import user as user_schema
+from app.db import models
+from app.schemas import user as user_schema
 
 def create_user(db: Session, user: user_schema.UserCreate):
     db_user = models.User(**user.dict())
@@ -24,6 +24,7 @@ def delete_user(id:int,db:Session):
     return cnt
 
 def user_update(user_update:user_schema.UserUpdate,user:models.User,db:Session):
+    print(user_update)
     user.name = user_update.name
     user.password = user_update.new_password
     db.commit()

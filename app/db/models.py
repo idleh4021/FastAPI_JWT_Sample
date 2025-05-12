@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String,DateTime,text,ForeignKey,UniqueConstraint,Boolean
-from db.database import Base
-
+from app.db.database import Base
 class User(Base):
     __tablename__ = 'users'
 
@@ -15,7 +14,7 @@ class User_Token(Base):
     __tablename__='users_token'
     
     id = Column(Integer,primary_key=True,autoincrement=True)
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'),index=True)
     device_id = Column(String,nullable=True)
     login_type = Column(String,server_default=text('local'))
     refresh_token = Column(String)
@@ -30,7 +29,7 @@ class User_Token(Base):
 class Todo(Base):
     __tablename__='todo'
     id = Column(Integer,primary_key=True,autoincrement=True)
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'),index=True)
     title =  Column(String)
     description = Column(String)
     todo_date =Column(DateTime(timezone=False))

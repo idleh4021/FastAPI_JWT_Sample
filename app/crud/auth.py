@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
-from db.models import User_Token as user_token_model
-from schemas import user as user_schema
-from schemas import auth as auth_schema
+from app.db.models import User_Token as user_token_model
+from app.schemas import user as user_schema
+from app.schemas import auth as auth_schema
 
 
 def store_refresh_token(db: Session, user_id: int,device_id:str, refresh_token_info:auth_schema.refresh_token_info):

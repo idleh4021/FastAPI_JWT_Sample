@@ -1,85 +1,81 @@
-from crud import user as user_crud
-from crud import auth as auth_crud
-from schemas import user as user_schema
-from schemas import auth as au
-from fastapi import HTTPException
+from app.crud import user as user_crud
+from app.crud import auth as auth_crud
+from app.schemas import user as user_schema
+from app.schemas import auth as au
+#from fastapi import HTTPException
 from sqlalchemy.orm import Session
-from utils import bcrypt as bc
-from utils import jwt_handler as jwt
+from app.utils import bcrypt as bc
+from app.utils import jwt_handler as jwt
 from datetime import datetime
+from app.schemas import  enum as valid
+
+def get_user(db,email:str):
+    return user_crud.get_user(db,email)
 
 def create_user(db:Session,user:user_schema.UserCreate ):
-    user_exists = user_crud.get_user(db,user.email)
-    if(user_exists):
-        raise HTTPException(
-            status_code=400,
-            detail=f"User with email '{user.email}' already exists."
-        )
-    print(f'create: {user.password}')
+    #print(f'create: {user.password}')
     user.password = bc.hash_password(user.password)
-    print(user.password)
+    #print(user.password)
     return user_crud.create_user(db,user)
 
-def login(db:Session,user:user_schema.Login):
-    account = user_crud.get_user(db,user.email)
-    if(account) is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Couldn't find your Account"
-        )
-    if(bc.verify_password(user.password,account.password)):
-        access_token = jwt.create_access_token(data={"sub" : str(account.id)})
-        refresh_token_dict = jwt.create_refresh_token(data={"sub" : str(account.id),"device_id":str(user.device_id)})
-        refresh_token_info= au.refresh_token_info(**refresh_token_dict)                                            
-        auth_crud.store_refresh_token(db,account.id,user.device_id,refresh_token_info)
-        return {"access_token" : access_token , "refresh_token" : refresh_token_info.refresh_token , "token_type":"bearer"}
-        #토큰 발행
-    else:
-        raise HTTPException(status_code=400,detail="Invalid credentials")
+def validate_login_and_get_user(db: Session, user: user_schema.Login) -> tuple[valid.LoginValidationResult, any]:
+    account = get_user(db, user.email)
+    if account is None:
+        return valid.LoginValidationResult.USER_NOT_FOUND, None
+    if not bc.verify_password(user.password, account.password):
+        return valid.LoginValidationResult.INVALID_PASSWORD, None
+    return valid.LoginValidationResult.OK, account
+
+def login(db: Session, user: user_schema.Login, account):
+    access_token = jwt.create_access_token(data={"sub": str(account.id), "device_id": str(user.device_id)})
+    refresh_token_dict = jwt.create_refresh_token(data={"sub": str(account.id), "device_id": str(user.device_id)})
+    refresh_token_info = au.refresh_token_info(**refresh_token_dict)
+
+    auth_crud.store_refresh_token(db, account.id, user.device_id, refresh_token_info)
+
+    return {
+        "access_token": access_token,
+        "refresh_token": refresh_token_info.refresh_token,
+        "token_type": "bearer"
+    }
         #BadRequest
         
 def delete_user(id:int,email:str,password:str,db:Session):
-    user= user_crud.get_user(db,email)
-    if bc.verify_password(password,user.password):
         cnt = user_crud.delete_user(id,db)
-        if(cnt>0):
-            return {"message":"User deleted","deleted":cnt}
-        else :
-            raise HTTPException(
-            status_code=404,
-            detail="Couldn't find your Account"
-            )
-            
-    else :
-        raise HTTPException(status_code=400,detail="Invalid credentials")
-    
-def refresh(refresh_token:str,db:Session):
-    request_refresh_token = jwt.decode_token(refresh_token)
-    id = request_refresh_token.get('sub')
-    device_id = request_refresh_token.get('device_id')
-    get_refresh_token = auth_crud.get_refresh_token(id,device_id,db)
-    if get_refresh_token is None:
-        raise HTTPException(status_code=404,detail="token not found")
-    else :
-        current_time = datetime.utcnow()
-        if current_time>get_refresh_token.expired_at:
-            raise HTTPException(status_code=401,detail="Token has expired.")
-        elif refresh_token !=get_refresh_token.refresh_token:
-            raise HTTPException(status_code=400,detail="invalid token")
-        else :
-            return {"access_token": jwt.create_access_token(data={"sub" : str(id)})}
+        return {"message":"User deleted","deleted":cnt}  
 
-def user_update(user:user_schema.UserUpdate,id:str,db:Session):
-    get_user = user_crud.get_user_by_id(db,id)
-    if get_user is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Couldn't find your Account"
-            )
-    else :
-        if bc.verify_password(user.old_password,get_user.password):
+
+
+def validate_refresh_token(refresh_token: str, db: Session):
+    try:
+        request_refresh_token = jwt.decode_token(refresh_token)
+    except Exception:
+        return valid.RefreshValidationResult.INVALID, None, None
+
+    user_id = request_refresh_token.get("sub")
+    device_id = request_refresh_token.get("device_id")
+    
+    if not user_id or not device_id:
+        return valid.RefreshValidationResult.INVALID, None, None
+
+    stored_token = auth_crud.get_refresh_token(user_id, device_id, db)
+    if stored_token is None:
+        return valid.RefreshValidationResult.NOT_FOUND, None, None
+
+    if stored_token.refresh_token != refresh_token:
+        return valid.RefreshValidationResult.INVALID, None, None
+
+    if datetime.utcnow() > stored_token.expired_at:
+        return valid.RefreshValidationResult.EXPIRED, None, None
+
+    return valid.RefreshValidationResult.VALID, user_id, device_id
+
+
+def refresh(user_id:int,device_id:str):
+    return {"access_token": jwt.create_access_token(data={"sub" : str(user_id),"device_id" : device_id})}
+
+def user_update(user:user_schema.UserUpdate,account,db:Session):
             user.new_password = bc.hash_password(user.new_password)
-            user_crud.user_update(user,get_user,db)
+            user_crud.user_update(user,account,db)
             return {"message":"User information has been successfully updated"}
-        else:
-            raise HTTPException(status_code=400,detail="Invalid credentials")
+        

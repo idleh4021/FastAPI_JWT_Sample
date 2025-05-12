@@ -1,9 +1,16 @@
 {
-    "name": "Python: FastAPI",
-    "type": "python",
-    "request": "launch",
-    "program": "${workspaceFolder}/app/main.py",
-    "env": {
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI: Uvicorn",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/app/main.py",
+      "args": [],
+      "env": {
         "PYTHONPATH": "${workspaceFolder}"
+      },
+      "console": "integratedTerminal"
     }
+  ]
 }
