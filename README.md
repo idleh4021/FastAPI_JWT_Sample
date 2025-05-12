@@ -52,3 +52,22 @@ uvicorn app.main:app --reload
 [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
 <img src="/public/paste-image/README/2025-05-13-01-39-35.png" width="75%" />
+
+# 단위 테스트
+아래 명령어로 테스트 코드를 실행합니다.
+## test_login.py
+```bash
+pytest tests/test_login.py -v
+```
+테스트는 아래 단계로 진행됩니다.
+
+1. 회원가입
+2. 로그인 및 토큰 발행 확인
+3. 사용자 정보 조회(유효한 토큰) 
+4. 사용자 정보 조회(토큰 없음) - 401
+5. 로그인 시도(잘못된 암호) -400
+6. 로그인 시도(잘못된 email) - 404 
+7. access_token 갱신
+8. 사용자 정보 삭제
+
+## test_todo.py
