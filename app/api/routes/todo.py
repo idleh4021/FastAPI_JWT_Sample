@@ -9,6 +9,7 @@ from app.api import deps
 from fastapi import HTTPException
 from typing import Optional
 from datetime import datetime
+from app.schemas import response
 
 router = APIRouter()
 
@@ -36,13 +37,14 @@ def update_todo(id: int, update_data: td_scheme.TodoUpdate, db: Session = Depend
     todo = todo_service.update_todo(db, id, user_id, update_data)
     return todo
 
-@router.delete("/{id}",summary='일정 삭제')
+@router.delete("/{id}",response_model =response.CudResponseModel ,summary='일정 삭제')
 def delete_todo(id: int, db: Session = Depends(deps.get_db),  current_user = Depends(deps.get_current_user)):
     user_id = current_user.id
-    result = todo_service.delete_todo(db, id, user_id)
-    if not result:
+    deleted = todo_service.delete_todo(db, id, user_id)
+    if not deleted:
         raise HTTPException(status_code=404, detail="Todo not found or unauthorized")
-    return {"detail": "Todo deleted"}
+    result = response.CudResponseModel(message="Todo deleted")
+    return result
 
 @router.get("/search/", response_model=List[td_scheme.TodoResponse],summary='일정 정보 검색')
 def search_todos(title: Optional[str]=Query(None,description='타이틀'),date: Optional[datetime]=Query(None,description='날짜'), db: Session = Depends(deps.get_db),  current_user = Depends(deps.get_current_user)):

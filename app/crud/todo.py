@@ -2,8 +2,8 @@ from sqlalchemy.orm import Session
 from app.db.models import Todo
 from app.schemas import todo as td_scheme
 from datetime import datetime
-
-
+from sqlalchemy import func
+from typing import List, Optional
 
 def create_todo(db: Session, user_id: int, todo_data: td_scheme.TodoCreate):
     todo = Todo(
@@ -43,8 +43,10 @@ def delete_todo(db: Session, todo_id: int, user_id: int):
     db.commit()
     return True
 
-def search_todos(db: Session, user_id: int, keyword: str):
-    return db.query(Todo).filter(
-        Todo.user_id == user_id,
-        Todo.title.ilike(f'%{keyword}%')
-    ).all()
+def search_todos(db: Session, user_id: int, title: Optional[str],date:Optional[datetime]):
+    query =db.query(Todo).filter(Todo.user_id == user_id)
+    if title and title.strip() != '':
+        query = query.filter(Todo.title.ilike(f'%{title}%'))
+    if date :
+        query = query.filter( func.Date(Todo.todo_date)==date.date())
+    return query.all()

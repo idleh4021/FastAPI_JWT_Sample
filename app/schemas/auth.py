@@ -12,3 +12,10 @@ class Access_token_Model (BaseModel):
     email:str
     device_id:str
     
+class response_refresh(BaseModel):
+    access_token : str
+    
+class response_login(BaseModel):
+    access_token : str
+    refresh_token : str
+    token_type : str
