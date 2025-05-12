@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.0.3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.0.3" pages="2">
   <diagram name="테이블정의" id="wE5rby8jwN910KaQAt5_">
     <mxGraphModel dx="1164" dy="18" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -303,6 +303,47 @@
             <mxPoint x="600" y="1215" as="sourcePoint" />
             <mxPoint x="520" y="925" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="gQc88q5eX6DT1Y-RWwLI" name="JWT 발급 및 검증 다이어그램">
+    <mxGraphModel dx="1964" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="foIte5sUFpS86NBzwvOU-4" value="Client" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="5" y="240" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-7" value="" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="180" width="50" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-8" value="" style="image;points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
+          <mxGeometry x="381" y="178.31" width="50" height="63.38" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-9" value="Server" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="366" y="240" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-12" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database.svg;" vertex="1" parent="1">
+          <mxGeometry x="-460" y="143" width="50" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-13" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="742" y="185" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-14" value="DataBase" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="727" y="240" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-16" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-34" y="277" width="880" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-17" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" vertex="1" parent="1">
+          <mxGeometry x="40" y="283" width="10" height="437" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-20" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" vertex="1" parent="1">
+          <mxGeometry x="401" y="283" width="10" height="437" as="geometry" />
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-21" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" vertex="1" parent="1">
+          <mxGeometry x="762" y="283" width="10" height="437" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
