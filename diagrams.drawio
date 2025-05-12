@@ -465,6 +465,28 @@
         <mxCell id="foIte5sUFpS86NBzwvOU-48" value="&lt;div&gt;Api Request&lt;/div&gt;&lt;div&gt;(Failed &amp;amp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;refresh)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="-58" y="696" width="100" height="64" as="geometry" />
         </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-49" value="refresh token 정보 응답" style="endArrow=none;html=1;rounded=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;startFill=0;startArrow=classic;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="880" as="sourcePoint" />
+            <mxPoint x="762" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-50" value="refresh 토큰 검증(Success)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="411" y="920" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="441" y="920" />
+              <mxPoint x="441" y="950" />
+            </Array>
+            <mxPoint x="411" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-51" value="access token 발급" style="endArrow=none;html=1;rounded=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;startFill=0;startArrow=classic;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="960" as="sourcePoint" />
+            <mxPoint x="401" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
