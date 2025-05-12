@@ -308,7 +308,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="gQc88q5eX6DT1Y-RWwLI" name="JWT 발급 및 검증 다이어그램">
-    <mxGraphModel dx="1964" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2063" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -323,9 +323,6 @@
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-9" value="Server" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="366" y="240" width="80" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="foIte5sUFpS86NBzwvOU-12" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database.svg;" vertex="1" parent="1">
-          <mxGeometry x="-460" y="143" width="50" height="37" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-13" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="742" y="185" width="50" height="50" as="geometry" />
@@ -485,6 +482,16 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="50" y="960" as="sourcePoint" />
             <mxPoint x="401" y="960" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="foIte5sUFpS86NBzwvOU-52" value="" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="foIte5sUFpS86NBzwvOU-17" target="foIte5sUFpS86NBzwvOU-46">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="30" y="1000" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-80" y="1000" />
+              <mxPoint x="-80" y="550" />
+            </Array>
+            <mxPoint x="-88" y="990" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
