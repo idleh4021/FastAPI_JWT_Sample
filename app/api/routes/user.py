@@ -12,7 +12,7 @@ from fastapi import HTTPException
 from app.schemas import enum as valid
 
 router = APIRouter()
-@router.post('/signup', response_model=user_schema.UserRead, summary='Sign Up')
+@router.post('/signup', response_model=user_schema.UserRead, summary='회원가입')
 def create_user(user: user_schema.UserCreate, db: Session = Depends(deps.get_db)):
     if user_service.get_user(db, user.email):
         raise HTTPException(
@@ -24,12 +24,12 @@ def create_user(user: user_schema.UserCreate, db: Session = Depends(deps.get_db)
     return result
 
 
-@router.get('/me', response_model=user_schema.UserRead, summary='Get Current User')
+@router.get('/me', response_model=user_schema.UserRead, summary='사용자정보 조회')
 def read_user(current_user=Depends(deps.get_current_user), db: Session = Depends(deps.get_db)):
     return user_service.get_user(db, current_user.email)
 
 
-@router.post('/login', response_model=auth_schema.response_login, summary='Login', description='Generates Access and Refresh Tokens.')
+@router.post('/login', response_model=auth_schema.response_login, summary='로그인', description='로그인에 성공하면 refresh_token과 access_token을 발급합니다.')
 def login(
     email: str = Form(..., description="Email address"),
     password: str = Form(..., description="Password"),
@@ -47,7 +47,7 @@ def login(
     return user_service.login(db, login_model, account)
 
 
-@router.post('/refresh', response_model=auth_schema.response_refresh, summary='Refresh Access Token', description='Reissues an Access Token using a valid Refresh Token.')
+@router.post('/refresh', response_model=auth_schema.response_refresh, summary='access_token 갱신', description='refresh_token으로 access_token을 갱신 발급합니다.')
 def refresh(refresh_token: str, db: Session = Depends(deps.get_db)):
     result, user_id, device_id = user_service.validate_refresh_token(refresh_token, db)
 
@@ -61,7 +61,7 @@ def refresh(refresh_token: str, db: Session = Depends(deps.get_db)):
     return user_service.refresh(user_id, device_id)
 
 
-@router.delete('/me', response_model=response.CudResponseModel, summary="Delete Account")
+@router.delete('/me', response_model=response.CudResponseModel, summary="사용자정보 삭제")
 def delete_user(password: str = Form(...), current_user=Depends(deps.get_current_user), db: Session = Depends(deps.get_db)):
     login_model = user_schema.Login(email=current_user.email, password=password, device_id=current_user.device_id)
     validation_result, account = user_service.validate_login_and_get_user(db, login_model)
@@ -75,7 +75,7 @@ def delete_user(password: str = Form(...), current_user=Depends(deps.get_current
     return result
 
 
-@router.put('/me', response_model=response.CudResponseModel, summary='Update Account')
+@router.put('/me', response_model=response.CudResponseModel, summary='사용자정보 수정')
 def user_update(user: user_schema.UserUpdate, current_user=Depends(deps.get_current_user), db: Session = Depends(deps.get_db)):
     login_model = user_schema.Login(email=current_user.email, password=user.old_password, device_id=current_user.device_id)
     validation_result, account = user_service.validate_login_and_get_user(db, login_model)
