@@ -94,4 +94,5 @@ pytest tests/test_login.py -v
 ![image](https://github.com/user-attachments/assets/33119001-0ede-4f22-8072-2f1a062c9fa2)
 </details>
 
-![diagrams-JWT 발급 및 검증 다이어그램](https://github.com/user-attachments/assets/1cba136b-47aa-4498-902c-c9020da1f2ed)
+![image](https://github.com/user-attachments/assets/1293b54c-2210-4903-94c8-e1785b14cd88)
+
