@@ -12,13 +12,12 @@ user_data = {
         "password": "1234"
     }
 
-
 def test_sign_up():
     print('회원가입 진행')
     response = client.post("/users/signup", json=user_data)
     print(f"회원가입 응답: {response.json()}")
     assert response.status_code == 200
-    return user_data
+    # return user_data
 
 def test_login_success():
     response = client.post("/users/login", data={  
@@ -54,6 +53,17 @@ def test_get_user_me(get_token):
         headers={"Authorization": f"Bearer {get_token['access_token']}"}
     )
     assert response.status_code == 200
+
+def test_update_user(get_token):
+    response = client.put(
+        "/users/me",
+        json={"name":"changedName",
+              "old_password": user_data["password"],
+              "new_password": user_data["password"]
+              },
+        headers={"Authorization": f"Bearer {get_token['access_token']}"}
+    )
+    assert response.status_code==200
 
 def test_get_user_me_use_without_access_token():
     response = client.get(
