@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.0.4" pages="2">
   <diagram id="gQc88q5eX6DT1Y-RWwLI" name="JWT 발급 및 검증 다이어그램">
-    <mxGraphModel dx="1564" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2063" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -26,13 +26,13 @@
           <mxGeometry x="-67" y="277" width="1268" height="10" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-17" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" parent="1" vertex="1">
-          <mxGeometry x="40" y="283" width="10" height="987" as="geometry" />
+          <mxGeometry x="40" y="283" width="10" height="1117" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-20" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" parent="1" vertex="1">
-          <mxGeometry x="401" y="283" width="10" height="987" as="geometry" />
+          <mxGeometry x="401" y="283" width="10" height="1117" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-21" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" parent="1" vertex="1">
-          <mxGeometry x="762" y="283" width="10" height="977" as="geometry" />
+          <mxGeometry x="762" y="283" width="10" height="1117" as="geometry" />
         </mxCell>
         <mxCell id="foIte5sUFpS86NBzwvOU-22" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;JWT 토큰 발급 및 검증 다이어그램&lt;/h1&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-34" y="79" width="414" height="40" as="geometry" />
@@ -193,7 +193,7 @@
           <mxGeometry x="1027.5" y="240" width="115" height="30" as="geometry" />
         </mxCell>
         <mxCell id="03MWfnTBD-LFSqpM8gA6-6" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};direction=east;" parent="1" vertex="1">
-          <mxGeometry x="1080" y="283" width="10" height="977" as="geometry" />
+          <mxGeometry x="1080" y="283" width="10" height="1117" as="geometry" />
         </mxCell>
         <mxCell id="03MWfnTBD-LFSqpM8gA6-7" value="" style="line;strokeWidth=2;html=1;" parent="1" vertex="1">
           <mxGeometry x="-67" y="643" width="1270" height="10" as="geometry" />
@@ -285,6 +285,16 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="50" y="610" as="sourcePoint" />
             <mxPoint x="401" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y0s9vzhRVkLzkLKhKoBa-9" value="Authorization Code 검증(Success)" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1090" y="439" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1120" y="439" />
+              <mxPoint x="1120" y="469" />
+            </Array>
+            <mxPoint x="1090" y="469" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
