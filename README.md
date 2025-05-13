@@ -72,7 +72,7 @@ pytest tests/test_login.py -v
 4. 사용자 정보 수정
 5. 사용자 정보 조회(토큰 없음) - 401
 6. 로그인 시도(잘못된 암호) -400
-7. 로그인 시도(잘못된 email) - 404 
+7. 로그인 시도(잘못된 email 계정) - 404 
 8. access_token 갱신
 9. 사용자 정보 삭제
 ![image](https://github.com/user-attachments/assets/0f15318c-b642-4d0c-8ed5-d0bc379f6a88)
