@@ -27,7 +27,10 @@ pip install -r requirements.txt
 #설치 패키지 확인
 pip list
 ```
-
+# DB 초기화
+```bash
+python init_db.py
+```
 # 서버실행
 
 1. uvicorn 실행
@@ -71,3 +74,15 @@ pytest tests/test_login.py -v
 8. 사용자 정보 삭제
 
 ## test_todo.py
+
+# JWT 발급 및 검증흐름 다이어그램
+<details>
+<summary>
+  원본파일 확인하기
+</summary>
+  
+[draw.io](https://draw.io)를 통해 원본파일([diagrams.drawio](https://github.com/idleh4021/FastAPI_JWT_Sample/blob/main/diagrams.drawio))을 확인하실 수 있습니다.
+![image](https://github.com/user-attachments/assets/33119001-0ede-4f22-8072-2f1a062c9fa2)
+</details>
+
+![diagrams-JWT 발급 및 검증 다이어그램](https://github.com/user-attachments/assets/1cba136b-47aa-4498-902c-c9020da1f2ed)
