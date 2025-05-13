@@ -90,7 +90,8 @@ pytest tests/test_todo.py -v
 6. 일정 정보 검색(Search)
 7. 일정 정보 삭제
 8. 사용자 삭제
-![image](https://github.com/user-attachments/assets/e0fb7142-206d-48c1-ae90-162899bd8501)
+![image](https://github.com/user-attachments/assets/0f693cfd-3e69-437a-831f-ccfc2f90fa56)
+
 
 # API 명세정보
 
