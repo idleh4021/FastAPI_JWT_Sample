@@ -82,6 +82,7 @@ pytest tests/test_login.py -v
 7. 로그인 시도(잘못된 email) - 404 
 8. access_token 갱신
 9. 사용자 정보 삭제
+![image](https://github.com/user-attachments/assets/0f15318c-b642-4d0c-8ed5-d0bc379f6a88)
 
 ## test_todo.py
 
