@@ -85,6 +85,17 @@ pytest tests/test_login.py -v
 ![image](https://github.com/user-attachments/assets/0f15318c-b642-4d0c-8ed5-d0bc379f6a88)
 
 ## test_todo.py
+테스트는 아래 단계로 진행됩니다.
+1. 회원가입
+2. 로그인 및 토큰 발행 확인
+3. 일정 정보 생성
+4. 일정 정보 수정
+5. 특정 일정 정보 조회
+6. 일정 정보 검색(Search)
+7. 일정 정보 삭제
+8. 사용자 삭제
+![image](https://github.com/user-attachments/assets/e0fb7142-206d-48c1-ae90-162899bd8501)
+
 
 # JWT 발급 및 검증흐름 다이어그램
 <details>
