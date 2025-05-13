@@ -79,7 +79,7 @@ def test_create_todo(get_token):
     assert response.status_code==200
     
 def test_update_todo(get_token):
-    response = client.put("/todos/3", 
+    response = client.put("/todos/2", 
     json={
             "title": "update test title",
             "description": "update description",
