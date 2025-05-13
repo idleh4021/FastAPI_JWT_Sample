@@ -77,6 +77,13 @@ def test_create_todo(get_token):
     headers={"Authorization": f"Bearer {get_token['access_token']}"}
     )
     assert response.status_code==200
+
+def test_get_todos(get_token):
+    response = client.get("/todos/2", 
+    headers={"Authorization": f"Bearer {get_token['access_token']}"}
+    )
+    print(f'get todo/2: {len(response.json())}')
+    assert response.status_code==200
     
 def test_update_todo(get_token):
     response = client.put("/todos/2", 
@@ -89,14 +96,7 @@ def test_update_todo(get_token):
     headers={"Authorization": f"Bearer {get_token['access_token']}"}
     )
     assert response.status_code==200
-
-def test_get_todos(get_token):
-    response = client.get("/todos/2", 
-    headers={"Authorization": f"Bearer {get_token['access_token']}"}
-    )
-    print(f'get todo/2: {len(response.json())}')
-    assert response.status_code==200
-    
+ 
 def test_get_todos_search(get_token):
     response = client.get("/todos/search/?date=2025-05-13", 
     headers={"Authorization": f"Bearer {get_token['access_token']}"}
