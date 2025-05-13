@@ -4,10 +4,10 @@
 1. [개요](#개요)   
 2. [환경설치](#환경설치)   
 3. [DB 초기화](#DB-초기화)   
-4. [서버실행](#서버실행)   
-5. [API 명세정보](#API-명세정보)
-6. [단위테스트](#단위-테스트)
-7. [JWT 발급 및 검증흐름 다이어그램](#JWT-발급-및-검증흐름-다이어그램)
+4. [서버실행](#서버실행)
+5. [단위테스트](#단위-테스트)
+6. [API 명세정보](#API-명세정보)
+8. [JWT 발급 및 검증흐름 다이어그램](#JWT-발급-및-검증흐름-다이어그램)
 
 # 개요
 
@@ -55,17 +55,10 @@ uvicorn app.main:app --reload
 <img src="/public/paste-image/README/2025-05-13-01-33-21.png" width="75%" />
 <img src="/public/paste-image/README/2025-05-13-01-37-02.png" width="75%" />
 
-# API 명세정보
-
-서버가 정상 구동된 다음, 아래 링크에서 API 정보를 확인할 수 있습니다.
-
-[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-
-[http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
-
-<img src="/public/paste-image/README/2025-05-13-01-39-35.png" width="75%" />
-
 # 단위 테스트
+uvicorn을 실행한 터미널은 그대로 유지하고, 
+
+새로운 터미널을 가상환경 활성화 상태에서
 아래 명령어로 테스트 코드를 실행합니다.
 ## test_login.py
 ```bash
@@ -79,23 +72,35 @@ pytest tests/test_login.py -v
 4. 사용자 정보 수정
 5. 사용자 정보 조회(토큰 없음) - 401
 6. 로그인 시도(잘못된 암호) -400
-7. 로그인 시도(잘못된 email) - 404 
+7. 로그인 시도(잘못된 email 계정) - 404 
 8. access_token 갱신
 9. 사용자 정보 삭제
 ![image](https://github.com/user-attachments/assets/0f15318c-b642-4d0c-8ed5-d0bc379f6a88)
 
 ## test_todo.py
+```bash
+pytest tests/test_todo.py -v
+```
 테스트는 아래 단계로 진행됩니다.
 1. 회원가입
 2. 로그인 및 토큰 발행 확인
 3. 일정 정보 생성
-4. 일정 정보 수정
-5. 특정 일정 정보 조회
+4. 특정 일정 정보 조회
+5. 일정 정보 수정
 6. 일정 정보 검색(Search)
 7. 일정 정보 삭제
 8. 사용자 삭제
 ![image](https://github.com/user-attachments/assets/e0fb7142-206d-48c1-ae90-162899bd8501)
 
+# API 명세정보
+
+서버가 정상 구동된 다음, 아래 링크에서 API 정보를 확인할 수 있습니다.
+
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+[http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+<img src="/public/paste-image/README/2025-05-13-01-39-35.png" width="75%" />
 
 # JWT 발급 및 검증흐름 다이어그램
 <details>
