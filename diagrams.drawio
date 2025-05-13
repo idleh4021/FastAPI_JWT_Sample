@@ -198,6 +198,43 @@
         <mxCell id="03MWfnTBD-LFSqpM8gA6-7" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
           <mxGeometry x="-67" y="525" width="1270" height="10" as="geometry" />
         </mxCell>
+        <mxCell id="03MWfnTBD-LFSqpM8gA6-8" value="Oauth 2.0" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-58" y="281" width="78" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="03MWfnTBD-LFSqpM8gA6-9" value="소셜 로그인 시도" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="51" y="310.99999999999994" as="sourcePoint" />
+            <mxPoint x="401" y="310.99999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="03MWfnTBD-LFSqpM8gA6-11" value="소셜 로그인 URL Redirect" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" target="03MWfnTBD-LFSqpM8gA6-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="329.99999999999994" as="sourcePoint" />
+            <mxPoint x="761" y="329.99999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="03MWfnTBD-LFSqpM8gA6-12" value="로그인 화면 응답" style="endArrow=none;html=1;rounded=0;entryX=-0.1;entryY=0.13;entryDx=0;entryDy=0;entryPerimeter=0;startFill=0;startArrow=classic;dashed=1;" edge="1" parent="1" source="foIte5sUFpS86NBzwvOU-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="727" y="350" as="sourcePoint" />
+            <mxPoint x="1078" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="03MWfnTBD-LFSqpM8gA6-13" value="로그인" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.13;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="51" y="380.99999999999994" as="sourcePoint" />
+            <mxPoint x="1080" y="381" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="03MWfnTBD-LFSqpM8gA6-14" value="사용자 검증" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1090" y="350" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1120" y="350" />
+              <mxPoint x="1120" y="380" />
+            </Array>
+            <mxPoint x="1090" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
